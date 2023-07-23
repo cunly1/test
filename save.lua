@@ -3,8 +3,6 @@ local Http = game:GetService("HttpService")
 local rawJSON = game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json")
 local decoded = Http:JSONDecode(rawJSON)
 
-local result = Http:JSONEncode(saveInstanceTree(...))
-
 function saveInstanceTree(instance)
 	local className = instance.ClassName
 	local classData = decoded[className]
@@ -54,6 +52,8 @@ function getPropertyValue(instance, propertyName)
 	end
 end
 
-print(result)
+local result = Http:JSONEncode(saveInstanceTree(game.Players.LocalPlayer.PlayerGui.Leaderboard))
+
+writefile("save", result)
 
 return result
