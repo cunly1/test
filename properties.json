@@ -1,0 +1,105 @@
+{
+  "Instance": {
+    "Properties": ["Archivable", "ClassName", "Name", "Parent", "PropertyStatusStudio"],
+    "Inherits": null
+  },
+
+  "GuiBase2d": {
+    "Properties": ["AbsolutePosition", "AbsoluteRotation", "AbsoluteSize", "AutoLocalize", "RootLocalizationTable"],
+    "Inherits": ["Instance"]
+  },
+  "GuiObject": {
+    "Properties":  ["Active", "AnchorPoint", "AutomaticSize", "BackgroundColor3", "BackgroundTransparency", "BorderColor3", "BorderMode", "BorderSizePixel", "ClipsDescendants", "LayoutOrder", "NextSelectionDown", "NextSelectionLeft", "NextSelectionRight", "NextSelectionUp", "Position", "Rotation", "Selectable", "SelectionImageObject", "Size", "SizeConstraint", "ZIndex", "Visible"],
+    "Inherits": ["GuiBase2d", "Instance"]
+  },
+  "GuiButton": {
+    "Properties": ["AutoButtonColor", "Modal", "Selected", "Style"],
+    "Inherits": ["GuiBase2d", "GuiObject", "Instance"]
+  },
+  "LayerCollector": {
+      "Properties": ["Enabled", "ResetOnSpawn", "ZIndexBehavior"],
+      "Inherits": ["GuiBase2d", "Instance"]
+  },
+
+ 
+  "ScreenGui": {
+      "Properties": ["DisplayOrder", "IgnoreGuiInset"],
+      "Inherits": ["LayerCollector", "GuiBase2d", "Instance"]
+  },
+  "Frame": {
+    "Properties": ["Style"],
+    "Inherits": ["GuiObject", "GuiBase2d", "Instance"]
+  },
+  "TextLabel": {
+    "Properties": ["ContentText", "Font", "FontFace", "LineHeight", "MaxVisibleGraphemes", "RichText", "Text", "TextBounds", "TextColor3", "TextFits", "TextScaled", "TextSize", "TextStrokeColor3", "TextStrokeTransparency", "TextTransparency", "TextTruncate", "TextWrapped", "TextXAlignment", "TextYAlignment"],
+    "Inherits": ["GuiBase2d", "GuiObject", "Instance"]
+  },
+  "TextButton": {
+    "Properties": ["ContentText", "Font", "FontFace", "LineHeight", "MaxVisibleGraphemes", "RichText", "Text", "TextBounds", "TextColor3", "TextFits", "TextScaled", "TextSize", "TextStrokeColor3", "TextStrokeTransparency", "TextTransparency", "TextTruncate", "TextWrapped", "TextXAlignment", "TextYAlignment"],
+    "Inherits": ["GuiButton", "GuiBase2d", "GuiObject", "Instance"]
+  },
+  "TextBox": {
+    "Properties": ["ClearTextOnFocus", "ContentText", "CursorPosition", "Font", "FontFace", "LineHeight", "MaxVisibleGraphemes", "MultiLine", "PlaceholderColor3", "PlaceholderText", "RichText", "SelectionStart", "ShowNativeInput", "Text", "TextBounds", "TextColor3", "TextEditable", "TextFits", "TextScaled", "TextSize", "TextStrokeColor3", "TextStrokeTransparency", "TextTransparency", "TextTruncate", "TextWrapped", "TextXAlignment", "TextYAlignment"],
+    "Inherits": ["GuiBase2d", "GuiObject", "Instance"]
+  },
+  "ImageLabel": {
+    "Properties": ["Image", "ImageColor3", "ImageRectOffset", "ImageRectSize", "ImageTransparency", "IsLoaded", "ResampleMode", "ScaleType", "SliceCenter", "SliceScale", "TileSize"],
+    "Inherits": ["GuiBase2d", "GuiObject", "Instance"]
+  },
+  "ImageButton": {
+    "Properties": ["HoverImage", "Image", "ImageColor3", "ImageRectOffset", "ImageRectSize", "ImageTransparency", "IsLoaded", "PressedImage", "ResampleMode", "ScaleType", "SliceCenter", "SliceScale", "TileSize"],
+    "Inherits": ["GuiButton", "GuiBase2d", "GuiObject", "Instance"]
+  },
+  "ScrollingFrame": {
+    "Properties": ["AbsoluteCanvasSize", "AbsoluteWindowSize", "AutomaticCanvasSize", "BottomImage", "CanvasPosition", "CanvasSize", "ElasticBehavior", "HorizontalScrollBarInset", "MidImage", "ScrollBarImageColor3", "ScrollBarImageTransparency", "ScrollBarThickness", "ScrollingDirection", "ScrollingEnabled", "TopImage", "VerticalScrollBarInset", "VerticalScrollBarPosition"],
+    "Inherits": ["GuiObject", "GuiBase2d", "Instance"]
+  },
+  "ViewportFrame": {
+    "Properties": ["Ambient", "CurrentCamera", "ImageColor3", "ImageTransparency", "LightColor", "LightDirection"],
+    "Inherits": ["GuiBase2d", "GuiObject", "Instance"]
+  },
+  "UISizeConstraint": {
+    "Properties": ["MaxSize", "MinSize"],
+    "Inherits": ["Instance"]
+  },
+  "UIGridStyleLayout": {
+    "Properties": ["AbsoluteContentSize", "FillDirection", "HorizontalAlignment", "SortOrder", "VerticalAlignment"],
+    "Inherits": ["Instance"]
+  },
+  "UIListLayout": {
+    "Properties": ["Padding"],
+    "Inherits": ["UIGridStyleLayout", "Instance"]
+  },
+  "UIGridLayout": {
+    "Properties": ["AbsoluteCellCount", "AbsoluteCellSize", "CellPadding", "CellSize", "FillDirectionMaxCells", "StartCorner"],
+    "Inherits": ["UIGridStyleLayout", "Instance"]
+  },
+  "UIPageLayout": {
+    "Properties": ["Animated", "Circular", "CurrentPage", "EasingDirection", "EasingStyle", "GamepadInputEnabled", "Padding", "ScrollWheelInputEnabled", "TouchInputEnabled", "TweenTime"],
+    "Inherits": ["UIGridStyleLayout", "Instance"]
+  },
+  "UIAspectRatioConstraint": {
+    "Properties": ["AspectRatio", "AspectType", "DominantAxis"],
+    "Inherits": ["Instance"]
+  },
+  "UIPadding": {
+    "Properties": ["PaddingBottom", "PaddingLeft", "PaddingRight", "PaddingTop"],
+    "Inherits": ["Instance"]
+  },
+  "UIScale": {
+    "Properties": ["Scale"],
+    "Inherits": ["Instance"]
+  },
+  "UICorner": {
+    "Properties": ["CornerRadius"],
+    "Inherits": ["Instance"]
+  },
+  "UIGradient": {
+    "Properties": ["Color", "Enabled", "Offset", "Rotation", "Transparency"],
+    "Inherits": ["Instance"]
+  },
+  "UIStroke": {
+    "Properties": ["ApplyStrokeMode", "Color", "Enabled", "LineJoinMode", "Thickness", "Transparency"],
+    "Inherits": ["Instance"]
+  }
+}
