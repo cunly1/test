@@ -1,8 +1,9 @@
-local rawJSON = game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json")
-print("hi")
-local decoded = game.HttpService:JSONDecode(rawJSON)
+local Http = game:GetService("HttpService")
 
-local result = game.HttpService:JSONEncode(saveInstanceTree(...))
+local rawJSON = game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json")
+local decoded = Http:JSONDecode(rawJSON)
+
+local result = Http:JSONEncode(saveInstanceTree(...))
 
 function saveInstanceTree(instance)
 	local className = instance.ClassName
