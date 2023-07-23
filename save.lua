@@ -54,6 +54,6 @@ end
 
 local result = Http:JSONEncode(saveInstanceTree(game.Players.LocalPlayer.PlayerGui.Leaderboard))
 
-writefile("save", result)
+writefile("save.txt", result)
 
 return result
