@@ -1,6 +1,4 @@
-local httpService = game:GetService('HttpService')
-local rawJSON = httpService:GetAsync("https://raw.githubusercontent.com/cunly1/test/main/properties.json")
-local decoded = httpService:JSONDecode(rawJSON)
+local decoded = httpService:JSONDecode(game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json"))
 
 local result = httpService:JSONEncode(saveInstanceTree(...))
 
