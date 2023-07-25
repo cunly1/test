@@ -2,6 +2,18 @@ local Https = game:GetService('HttpService')
 local rawJSON = Https:GetAsync("https://pastebin.com/raw/HDimcHzu")
 local properties = Https:JSONDecode(rawJSON)
 
+--[=[
+	
+   _____    __      ________ 
+  / ____|  /\ \    / /  ____|
+ | (___   /  \ \  / /| |__   
+  \___ \ / /\ \ \/ / |  __|  
+  ____) / ____ \  /  | |____ 
+ |_____/_/    \_\/   |______|
+                                                             
+                                
+]=]
+
 local customValues = {
 	ColorSequence = function(sequence)
 		local keypoints = {}
@@ -86,8 +98,9 @@ function getPropertyValue(instance, propertyName)
 	}
 end
 
-local savedInstance = Https:JSONEncode(saveInstanceTree(...))
+local savedInstanceTree = saveInstanceTree(...)
+local encodedInstanceTree = Https:JSONEncode(saveInstanceTree)
 
-writefile("save.txt", savedInstance)
+writefile("save.txt", encodedInstanceTree)
 
-return savedInstance
+return savedInstanceTree
