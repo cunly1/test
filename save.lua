@@ -86,7 +86,7 @@ function saveInstanceTree(instance)
 	}
 end
 
-function onRequest1(instance)
+function onRequest(instance)
 	local savedInstanceTree = saveInstanceTree(instance)
 	local encodedInstanceTree = Https:JSONEncode(savedInstanceTree)
 	
