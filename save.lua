@@ -93,4 +93,5 @@ function onRequest(instance)
 	writefile("save.txt", encodedInstanceTree) 
 end
 
-return onRequest(...)
+--return onRequest(...)
+print("Hi")
