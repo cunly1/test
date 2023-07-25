@@ -2,18 +2,6 @@ local Https = game:GetService('HttpService')
 local rawJSON = Https:GetAsync("https://pastebin.com/raw/HDimcHzu")
 local properties = Https:JSONDecode(rawJSON)
 
---[=[
-	
-   _____    __      ________ 
-  / ____|  /\ \    / /  ____|
- | (___   /  \ \  / /| |__   
-  \___ \ / /\ \ \/ / |  __|  
-  ____) / ____ \  /  | |____ 
- |_____/_/    \_\/   |______|
-                                                             
-                                
-]=]
-
 local customValues = {
 	ColorSequence = function(sequence)
 		local keypoints = {}
