@@ -1,3 +1,5 @@
+local Https = game:GetService('HttpService')
+
 local conversionList = {
 	number = tonumber,
 
