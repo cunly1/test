@@ -1,11 +1,48 @@
-local Http = game:GetService("HttpService")
+local Https = game:GetService('HttpService')
+local rawJSON = Https:GetAsync("https://pastebin.com/raw/HDimcHzu")
+local properties = Https:JSONDecode(rawJSON)
 
-local rawJSON = game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json")
-local decoded = Http:JSONDecode(rawJSON)
+--[=[
+	
+   _____    __      ________ 
+  / ____|  /\ \    / /  ____|
+ | (___   /  \ \  / /| |__   
+  \___ \ / /\ \ \/ / |  __|  
+  ____) / ____ \  /  | |____ 
+ |_____/_/    \_\/   |______|
+                                                             
+                                
+]=]
+
+local customValues = {
+	ColorSequence = function(sequence)
+		local keypoints = {}
+		for _, keypoint in ipairs(sequence.Keypoints) do
+			local savedKeypoint = {
+				Time = keypoint.Time,
+				Value = tostring(keypoint.Value)
+			}
+			table.insert(keypoints, savedKeypoint)
+		end
+		return Https:JSONEncode(keypoints)
+	end,
+	
+	NumberSequence = function(sequence)
+		local keypoints = {}
+		for _, keypoint in ipairs(sequence.Keypoints) do
+			local savedKeypoint = {
+				Time = keypoint.Time,
+				Value = tostring(keypoint.Value)
+			}
+			table.insert(keypoints, savedKeypoint)
+		end
+		return Https:JSONEncode(keypoints)
+	end
+}
 
 function saveInstanceTree(instance)
 	local className = instance.ClassName
-	local classData = decoded[className]
+	local classData = properties[className]
 
 	assert(classData, "Couldn't find class with ClassName: ".. className)
 
@@ -31,28 +68,37 @@ function gatherProperties(instance, classData, savedProperties, visitedClasses)
 	if visitedClasses[classData] then return end
 	visitedClasses[classData] = true
 
-	for _, property in ipairs(classData.Properties) do
-		savedProperties[property] = getPropertyValue(instance, property)
+	for _, propertyName in ipairs(classData.Properties) do
+		local tab = getPropertyValue(instance, propertyName)
+		if not tab then continue end
+
+		savedProperties[propertyName] = tab
 	end
 
 	if classData.Inherits then
 		for _, inheritedClass in ipairs(classData.Inherits) do
-			gatherProperties(instance, decoded[inheritedClass], savedProperties, visitedClasses)
+			gatherProperties(instance, properties[inheritedClass], savedProperties, visitedClasses)
 		end
 	end
 end
 
 function getPropertyValue(instance, propertyName)
-	local success, value = pcall(function() 
+	local _, value = pcall(function() 
 		return instance[propertyName] 
 	end)
-
-	if success then 
-		return value 
-	end
+	
+	if value == nil then return end
+	
+	local type = typeof(value)
+	local hasCustomValue = customValues[tostring(type)]
+	
+	return {
+		type = type, 
+		value = (hasCustomValue and hasCustomValue(value)) or tostring(value), 
+	}
 end
 
-local result = Http:JSONEncode(saveInstanceTree(game.Players.LocalPlayer.PlayerGui.Leaderboard))
+local result = Https:JSONEncode(saveInstanceTree(...))
 
 writefile("save.txt", result)
 
