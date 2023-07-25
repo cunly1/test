@@ -1,5 +1,4 @@
 local Https = game:GetService('HttpService')
-print("hi")
 local rawJSON = game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json")
 local properties = Https:JSONDecode(rawJSON)
 
