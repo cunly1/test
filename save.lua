@@ -86,8 +86,8 @@ function getPropertyValue(instance, propertyName)
 	}
 end
 
-local result = Https:JSONEncode(saveInstanceTree(...))
+local savedInstance = Https:JSONEncode(saveInstanceTree(...))
 
-writefile("save.txt", result)
+writefile("save.txt", savedInstance)
 
-return result
+return savedInstance
