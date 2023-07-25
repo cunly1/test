@@ -1,5 +1,5 @@
 local Https = game:GetService('HttpService')
-local rawJSON = Https:GetAsync("https://pastebin.com/raw/HDimcHzu")
+local rawJSON = loadstring(game:HttpGet("https://raw.githubusercontent.com/cunly1/test/main/properties.json"))()
 local properties = Https:JSONDecode(rawJSON)
 
 local customValues = {
